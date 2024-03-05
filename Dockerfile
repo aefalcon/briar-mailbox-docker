@@ -11,5 +11,5 @@ FROM BASE
 RUN mkdir -p /mailbox/data /mailbox/lib
 COPY --from=BUILD /briar-mailbox-main/mailbox-cli/build/libs/mailbox-cli-linux-x86_64.jar /mailbox/lib
 VOLUME [ "/mailbox/data" ]
-ENV XDG_DATA_HOME=/mailbox/data
+ENV LANG=C.UTF-8 XDG_DATA_HOME=/mailbox/data
 ENTRYPOINT [ "/usr/bin/java", "-jar", "/mailbox/lib/mailbox-cli-linux-x86_64.jar" ]
